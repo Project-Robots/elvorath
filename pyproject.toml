@@ -1,0 +1,48 @@
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "elvorath"
+version = "0.1.0"
+description = "Elvorath is a fast and secure certificate authority using FastAPI."
+authors = [
+    {name = "Author", email = "author@example.com"}
+]
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "cryptography>=3.3.2",
+    "fastapi[standard]==0.75.2",
+    "uvicorn[standard]==0.15.0",
+    "pydantic==1.9.0"
+]
+
+[project.optional-dependencies]
+dev = [
+    "black>=22.12.0",
+    "pytest>=7.2.0",
+    "pytest-cov>=4.0.0",
+    "pytest-mock>=3.8.2",
+    "pylint>=2.15.0",
+    "bandit>=1.7.4",
+]
+docs = []
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+packages = ["elvorath"]
+
+[tool.pytest.ini_options]
+addopts = "--cov=elvorath"
+testpaths = ["tests"]
+
+[tool.black]
+line-length = 88
+target-version = ["py38"]
+include = '\.pyi?$'
+
+[tool.pylint]
+max-line-length = 88
+disable = ["C0111", "C0103"]

@@ -1,0 +1,15 @@
+# Include all the requirements in the requirements.txt file
+-r requirements.txt
+
+-e .
+
+black>=22.12.0
+pytest>=7.2.0
+pytest-cov>=4.0.0
+pytest-mock>=3.8.2
+pylint>=2.15.0
+bandit>=1.7.4
+
+# Documentation requirements
+-r docs/requirements.txt
+
